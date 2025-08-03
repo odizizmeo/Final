@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จัดการอ้างอิง - Final Exam Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id = "navbar"></header>
+
+    <main>
+        <div class="container">
+            <section class="reference-management">
+                <div class="page-header">
+                    <h2>จัดการรายการอ้างอิง</h2>
+                    <p>เพิ่ม แก้ไข และลบรายการอ้างอิงตามรูปแบบ IEEE</p>
+                </div>
+
+                <div class="actions-bar">
+                    <button id="addReferenceBtn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        เพิ่มอ้างอิงใหม่
+                    </button>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="ค้นหาอ้างอิง...">
+                    </div>
+                </div>
+
+                <div class="references-table-container">
+                    <table class="references-table">
+                        <thead>
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>ชื่อบทความ</th>
+                                <th>ผู้เขียน</th>
+                                <th>วารสาร</th>
+                                <th>ปี</th>
+                                <th>การจัดการ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="referencesTableBody">
+                            <!-- รายการอ้างอิงจะถูกโหลดจาก API -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="noReferences" class="no-data" style="display: none;">
+                    <p>ยังไม่มีรายการอ้างอิง</p>
+                    <button class="btn btn-primary" onclick="openAddModal()">เพิ่มอ้างอิงแรก</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal สำหรับเพิ่ม/แก้ไขอ้างอิง -->
+    <div id="referenceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">เพิ่มอ้างอิงใหม่</h3>
+            <form id="referenceForm">
+                <input type="hidden" id="referenceId">
+                <div class="form-group">
+                    <label for="title">ชื่อบทความ/งานวิจัย *</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="authors">ผู้เขียน *</label>
+                    <input type="text" id="authors" name="authors" required>
+                </div>
+                <div class="form-group">
+                    <label for="journal">วารสาร/แหล่งที่มา *</label>
+                    <input type="text" id="journal" name="journal" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">ปีที่พิมพ์ *</label>
+                        <input type="number" id="year" name="year" min="1900" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">เล่มที่</label>
+                        <input type="text" id="volume" name="volume">
+                    </div>
+                    <div class="form-group">
+                        <label for="issue">ฉบับที่</label>
+                        <input type="text" id="issue" name="issue">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pages">หน้า</label>
+                    <input type="text" id="pages" name="pages" placeholder="เช่น 1-10">
+                </div>
+                <div class="form-group">
+                    <label for="doi">DOI</label>
+                    <input type="text" id="doi" name="doi">
+                </div>
+                <div class="form-group">
+                    <label for="pdfUrl">ลิงก์ PDF *</label>
+                    <input type="url" id="pdfUrl" name="pdfUrl" required>
+                </div>
+                <div class="form-group">
+                    <label for="pdfFile">อัปโหลดไฟล์ PDF (ถ้ามี)</label>
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">บันทึก</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal ยืนยันการลบ -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>ยืนยันการลบ</h3>
+            <p>คุณต้องการลบรายการอ้างอิงนี้หรือไม่?</p>
+            <div class="form-actions">
+                <button id="confirmDelete" class="btn btn-danger">ลบ</button>
+                <button onclick="closeDeleteModal()" class="btn btn-secondary">ยกเลิก</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Final Exam Project.</p>
+        </div>
+    </footer>
+    <script>
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+          // เพิ่ม class active ตามหน้า
+          const path = window.location.pathname;
+          document.querySelectorAll('.nav-menu a').forEach(a => {
+            if (a.getAttribute('href') === path) {
+              a.classList.add('active');
+            } else {
+              a.classList.remove('active');
+            }
+          });
+        });
+    </script>
+    <script src="reference.js"></script>
+</body>
+</html> 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกี่ยวกับฉัน - Final Exam Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="navbar"></header>
+
+    <main>
+        <div class="container">
+            <section class="about-section">
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <img src="cip/Psy.jpg" alt="รูปภาพนักศึกษา">
+                    </div>
+                    <div class="profile-info">
+                        <h2>เกี่ยวกับฉัน</h2>
+                        <div class="personal-details">
+                            <div class="detail-item">
+                                <strong>ชื่อ-นามสกุล:</strong> นายกฤษดิศักดิ์ ภูมี
+                            </div>
+                            <div class="detail-item">
+                                <strong>รหัสนักศึกษา:</strong> 67130029
+                            </div>
+                            <div class="detail-item">
+                                <strong>สาขาวิชา:</strong> วิศวกรรมคอมพิวเตอร์
+                            </div>
+                            <div class="detail-item">
+                                <strong>คณะ:</strong> คณะวิศวกรรมศาสตร์
+                            </div>
+                            <div class="detail-item">
+                                <strong>มหาวิทยาลัย:</strong> มหาวิทยาลัยธุรกิจบัณฑิตย์
+                            </div>
+                            <div class="detail-item">
+                                <strong>อีเมล:</strong> 67130029@dpu.ac.th
+                            </div>
+                            <div class="detail-item">
+                                <strong>เบอร์โทรศัพท์:</strong> 012-345-6789
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!--                <div class="about-content">
+                    <h3>ประวัตส่วนตัว</h3>
+                    <div class="education-timeline">
+                        <div class="timeline-item">
+                            <div class="year">2554 - 2559</div>
+                            <div class="content">
+                                <h4>ปริญญาตรี</h4>
+                                <p>สาขา วิศวกรรมคอมพิวเตอร์ คณะ วิศวกรรมศาสตร์ มหาวิทยาลัย เทคโนโลยีราชมงคลศรีวิชัย</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2564 - 2566</div>
+                            <div class="content">
+                                <h4>มัธยมศึกษาตอนปลาย</h4>
+                                <p>โรงเรียน [ชื่อโรงเรียน] สาย [สายการเรียน]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>ทักษะและความสามารถ</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>ภาษาโปรแกรมมิ่ง</h4>
+                            <ul>
+                                <li>JavaScript</li>
+                                <li>Python</li>
+                                <li>Java</li>
+                                <li>HTML/CSS</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>เครื่องมือและเทคโนโลยี</h4>
+                            <ul>
+                                <li>Node.js</li>
+                                <li>MongoDB</li>
+                                <li>Docker</li>
+                                <li>Git</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>ภาษา</h4>
+                            <ul>
+                                <li>ไทย (ภาษาแม่)</li>
+                                <li>อังกฤษ (ระดับกลาง)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>ประสบการณ์และผลงาน</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <h4>โปรเจค [ชื่อโปรเจค]</h4>
+                            <p class="period">2567</p>
+                            <p>รายละเอียดโปรเจคและเทคโนโลยีที่ใช้</p>
+                        </div>
+                        <div class="experience-item">
+                            <h4>การแข่งขัน [ชื่อการแข่งขัน]</h4>
+                            <p class="period">2566</p>
+                            <p>ผลงานและรางวัลที่ได้รับ</p>
+                        </div>
+                    </div>
+
+                    <h3>ความสนใจและเป้าหมาย</h3>
+                    <p>สนใจในด้าน [สาขาที่สนใจ] และมีเป้าหมายในการพัฒนา [เป้าหมาย] ในอนาคต</p>
+                </div>-->
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Final Exam Project.</p>
+        </div>
+    </footer>
+
+    <script>
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+          // เพิ่ม class active ตามหน้า
+          const path = window.location.pathname;
+          document.querySelectorAll('.nav-menu a').forEach(a => {
+            if (a.getAttribute('href') === path) {
+              a.classList.add('active');
+            } else {
+              a.classList.remove('active');
+            }
+          });
+        });
+    </script>
+</body>
+</html>

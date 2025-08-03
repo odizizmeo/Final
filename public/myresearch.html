@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>งานวิจัย - Final Exam Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="navbar"></header>
+
+    <main>
+        <div class="container">
+            <section class="research-section">
+                <h2>แนวทางวิจัย</h2>
+                
+                <div class="research-content">
+                    <h3>หัวข้อวิจัย</h3>
+                    <p class="research-title">A Hardware-Based Biometric Authentication System and Secure Token Encryption</p>
+                    
+                    <h3>บทคัดย่อ</h3>
+                    <p>งานวิจัยนี้วัตถุประสงค์พัฒนาระบบยืนยันตัวตน โดยใช้ฮาร์ดแวร์เป็นส่วนสำคัญหลัก เช่น Raspberry Pi, Arduino, Fingerprint Scan หรืออุปกรณ์ Biometric ต่างๆ ร่วมกับหลักการสร้าง Token การเข้ารหัสต่างๆ ให้การ Authentication เข้าถึงระบบสารสนเทศหรือบริการออนไลน์มีความปลอดภัยสูง
+                        กระบวนการยืนยันตัวตนจะประกอบไปด้วยการอ่านลายนิ้วมือ และการสร้าง Token แบบใช้ครั้งเดียว (One-Time-Token) ที่เข้ารหัสด้วย HMAC-SHA512 ก่อนส่งไปยัง Authentication Server ผ่าน HTTPS ป้องกันการปลอมแปลงข้อมูลและ การเข้าถึงโดยไม่ได้รับอนุญาต
+                    </p>
+                    
+                    <h3>วัตถุประสงค์ของการวิจัย</h3>
+                    <ul>
+                        <p>1. เพื่อสร้างระบบยืนยันตัวตนที่ปลอดภัย: พัฒนาระบบยืนยันตัวตนที่สามารถป้องกันการโจมตีและเข้าถึงโดยไม่ได้รับอนุญาตได้ดียิ่งขึ้นเมื่อเทียบกับวิธีการใช้รหัสผ่านแบบดั้งเดิม</p>
+                        <p>2. เพื่อเพิ่มความสะดวกในการใช้งาน: ออกแบบฮาร์ดแวร์และซอฟต์แวร์ให้ใช้งานง่ายและรวดเร็วสำหรับผู้ใช้ โดยไม่ต้องจดจำรหัสผ่านที่ซับซ้อน</p>
+                        <p>3. เพื่อเป็นต้นแบบสำหรับการนำไปประยุกต์ใช้: สร้างโปรเจกต์ที่เป็นตัวอย่างสำหรับการนำแนวคิดนี้ไปประยุกต์ใช้ในระบบสารสนเทศอื่นๆ ที่ต้องการความปลอดภัยสูง เช่น ระบบธนาคาร, ระบบการแพทย์ หรือระบบควบคุมการเข้าถึงในองค์กร</p>
+                    </ul>
+                    
+                    <h3>ขอบเขตของการวิจัย</h3>
+                    <p>การวิจัยนี้จะครอบคลุม [ขอบเขตการวิจัย] โดยใช้ [เครื่องมือ/เทคโนโลยี] ในการพัฒนาและทดสอบ</p>
+                                           
+                    <h3>ประโยชน์ที่คิดว่าจะได้รับ</h3>
+                    <ul>
+                        <p>1. เพิ่มความปลอดภัยของข้อมูล ลดความเสี่ยงจากการถูกขโมยรหัสผ่านและการเข้าถึงข้อมูลโดยไม่ได้รับอนุญาต ซึ่งเป็นปัญหาใหญ่ในระบบสารสนเทศปัจจุบัน</p>
+                        <p>2. ลดภาระของผู้ใช้ ผู้ใช้ไม่ต้องกังวลเรื่องการตั้งรหัสผ่านที่เดาได้ยากหรือความเสี่ยงจากการถูกขโมยรหัสผ่าน</p>
+                        <p>3. เพิ่มความน่าเชื่อถือของระบบ สร้างความเชื่อมั่นให้กับผู้ใช้งานและองค์กรว่าระบบมีการป้องกันที่แข็งแกร่งและได้มาตรฐาน</p>
+                        <p>4. เปิดโอกาสในการพัฒนาต่อยอด ผลลัพธ์ของโปรเจกต์นี้สามารถนำไปเป็นพื้นฐานในการพัฒนาโซลูชันด้านความปลอดภัยอื่นๆ ที่ใช้ฮาร์ดแวร์เป็นหลัก เช่น การยืนยันตัวตนแบบหลายปัจจัย (Multi-factor Authentication) ที่ใช้ฮาร์ดแวร์ร่วมกับไบโอเมตริกซ์</p>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="references-section">
+                <div class="references-header">
+                    <h2>รายการอ้างอิง</h2>
+                    <button id="addReferenceBtn" class="btn btn-primary">เพิ่มอ้างอิงใหม่</button>
+                </div>
+                
+                <div id="referencesList" class="references-list">
+                    <!-- รายการอ้างอิงจะถูกโหลดจาก API -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal สำหรับเพิ่ม/แก้ไขอ้างอิง -->
+    <div id="referenceModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">เพิ่มอ้างอิงใหม่</h3>
+            <form id="referenceForm">
+                <input type="hidden" id="referenceId">
+                <div class="form-group">
+                    <label for="title">ชื่อบทความ/งานวิจัย *</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="authors">ผู้เขียน *</label>
+                    <input type="text" id="authors" name="authors" required>
+                </div>
+                <div class="form-group">
+                    <label for="journal">วารสาร/แหล่งที่มา *</label>
+                    <input type="text" id="journal" name="journal" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">ปีที่พิมพ์ *</label>
+                        <input type="number" id="year" name="year" min="1900" max="2030" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="volume">เล่มที่</label>
+                        <input type="text" id="volume" name="volume">
+                    </div>
+                    <div class="form-group">
+                        <label for="issue">ฉบับที่</label>
+                        <input type="text" id="issue" name="issue">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pages">หน้า</label>
+                    <input type="text" id="pages" name="pages" placeholder="เช่น 1-10">
+                </div>
+                <div class="form-group">
+                    <label for="doi">DOI</label>
+                    <input type="text" id="doi" name="doi">
+                </div>
+                <div class="form-group">
+                    <label for="pdfUrl">ลิงก์ PDF *</label>
+                    <input type="url" id="pdfUrl" name="pdfUrl" required>
+                </div>
+                <div class="form-group">
+                    <label for="pdfFile">อัปโหลดไฟล์ PDF (ถ้ามี)</label>
+                    <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">บันทึก</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">ยกเลิก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Final Exam Project.</p>
+        </div>
+    </footer>
+    <script>
+      fetch('navbar.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('navbar').innerHTML = data;
+          // เพิ่ม class active ตามหน้า
+          const path = window.location.pathname;
+          document.querySelectorAll('.nav-menu a').forEach(a => {
+            if (a.getAttribute('href') === path) {
+              a.classList.add('active');
+            } else {
+              a.classList.remove('active');
+            }
+          });
+        });
+    </script>
+    <script src="myresearch.js"></script>
+</body>
+</html> 
